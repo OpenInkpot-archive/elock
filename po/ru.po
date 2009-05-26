@@ -3,19 +3,19 @@
 # This file is distributed under the same license as the elock package.
 # Alexander Kerner <lunohod@openinkpot.org>, 2009
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: elock\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-05-13 17:56+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2009-05-26 10:09+0200\n"
+"Last-Translator: Vladimir <v@v>\n"
+"Language-Team: Russian <openinkpot-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: src/elock.c:97
 msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
-msgstr "Для включения устройства<br>нажмите кнопку \"OK\"<br>3-4 секунды"
+msgstr "Чтобы разблокировать устройство<br>нажмите и удерживайте кнопку \”ОК\”<br>3-4 секунды"
+
