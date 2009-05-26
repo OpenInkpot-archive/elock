@@ -17,5 +17,5 @@ msgstr ""
 
 #: src/elock.c:97
 msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
-msgstr "Чтобы разблокировать устройство<br>нажмите и удерживайте кнопку \”ОК\”<br>3-4 секунды"
+msgstr "Чтобы разблокировать <br>устройство нажмите<br>и удерживайте<br>кнопку ”ОК”<br>3-4 секунды"
 
