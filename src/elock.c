@@ -3,6 +3,7 @@
 #include <libintl.h>
 
 #include <Ecore.h>
+#include <Ecore_X.h>
 #include <Ecore_Con.h>
 #include <Ecore_Evas.h>
 #include <Evas.h>
@@ -16,6 +17,8 @@
 #define UNLOCK "Unlock"
 
 Ecore_Evas *main_win;
+
+void exit_all(void* param) { ecore_main_loop_quit(); }
 
 typedef struct
 {
@@ -77,6 +80,8 @@ int main(int argc, char **argv)
 	ecore_event_handler_add(ECORE_CON_EVENT_CLIENT_ADD, _client_add, NULL);
 	ecore_event_handler_add(ECORE_CON_EVENT_CLIENT_DATA, _client_data, NULL);
 	ecore_event_handler_add(ECORE_CON_EVENT_CLIENT_DEL, _client_del, NULL);
+
+	ecore_x_io_error_handler_set(exit_all, NULL);
 
 	//Ecore_Evas *
 	main_win = ecore_evas_software_x11_new(0, 0, 0, 0, 600, 800);
