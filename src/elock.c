@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdarg.h>
+#include <stdlib.h>
 #include <string.h>
 #include <libintl.h>
 
@@ -19,6 +21,15 @@
 Ecore_Evas *main_win;
 
 void exit_all(void* param) { ecore_main_loop_quit(); }
+
+static void die(const char* fmt, ...)
+{
+	va_list ap;
+	va_start(ap, fmt);
+	vfprintf(stderr, fmt, ap);
+	va_end(ap);
+	exit(EXIT_FAILURE);
+}
 
 typedef struct
 {
@@ -67,10 +78,16 @@ static int _client_data(void* param, int ev_type, void* ev)
 
 int main(int argc, char **argv)
 {
-	ecore_init();
-	ecore_con_init();
-	ecore_evas_init();
-	edje_init();
+	if(!evas_init())
+		die("Unable to initialize Evas\n");
+	if(!ecore_init())
+		die("Unable to initialize Ecore\n");
+	if(!ecore_con_init())
+		die("Unable to initialize Ecore_Con\n");
+	if(!ecore_evas_init())
+		die("Unable to initialize Ecore_Evas\n");
+	if(!edje_init())
+		die("Unable to initialize Edje\n");
 
 	setlocale(LC_ALL, "");
 	textdomain("elock");
@@ -110,6 +127,7 @@ int main(int argc, char **argv)
 	ecore_evas_shutdown();
 	ecore_con_shutdown();
 	ecore_shutdown();
+	evas_shutdown();
 
 	return 0;
 }
