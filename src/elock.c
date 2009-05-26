@@ -1,8 +1,11 @@
 #include <stdio.h>
+#include <stdarg.h>
+#include <stdlib.h>
 #include <string.h>
 #include <libintl.h>
 
 #include <Ecore.h>
+#include <Ecore_X.h>
 #include <Ecore_Con.h>
 #include <Ecore_Evas.h>
 #include <Evas.h>
@@ -16,6 +19,17 @@
 #define UNLOCK "Unlock"
 
 Ecore_Evas *main_win;
+
+void exit_all(void* param) { ecore_main_loop_quit(); }
+
+static void die(const char* fmt, ...)
+{
+	va_list ap;
+	va_start(ap, fmt);
+	vfprintf(stderr, fmt, ap);
+	va_end(ap);
+	exit(EXIT_FAILURE);
+}
 
 typedef struct
 {
@@ -64,10 +78,16 @@ static int _client_data(void* param, int ev_type, void* ev)
 
 int main(int argc, char **argv)
 {
-	ecore_init();
-	ecore_con_init();
-	ecore_evas_init();
-	edje_init();
+	if(!evas_init())
+		die("Unable to initialize Evas\n");
+	if(!ecore_init())
+		die("Unable to initialize Ecore\n");
+	if(!ecore_con_init())
+		die("Unable to initialize Ecore_Con\n");
+	if(!ecore_evas_init())
+		die("Unable to initialize Ecore_Evas\n");
+	if(!edje_init())
+		die("Unable to initialize Edje\n");
 
 	setlocale(LC_ALL, "");
 	textdomain("elock");
@@ -77,6 +97,8 @@ int main(int argc, char **argv)
 	ecore_event_handler_add(ECORE_CON_EVENT_CLIENT_ADD, _client_add, NULL);
 	ecore_event_handler_add(ECORE_CON_EVENT_CLIENT_DATA, _client_data, NULL);
 	ecore_event_handler_add(ECORE_CON_EVENT_CLIENT_DEL, _client_del, NULL);
+
+	ecore_x_io_error_handler_set(exit_all, NULL);
 
 	//Ecore_Evas *
 	main_win = ecore_evas_software_x11_new(0, 0, 0, 0, 600, 800);
@@ -105,6 +127,7 @@ int main(int argc, char **argv)
 	ecore_evas_shutdown();
 	ecore_con_shutdown();
 	ecore_shutdown();
+	evas_shutdown();
 
 	return 0;
 }
