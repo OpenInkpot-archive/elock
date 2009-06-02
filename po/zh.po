@@ -1,4 +1,4 @@
-﻿# elock
+# elock
 # Copyright (C) 2009 Alexander Kerner <lunohod@openinkpot.org>
 # This file is distributed under the same license as the elock package.
 # Alexander Kerner <lunohod@openinkpot.org>, 2009
