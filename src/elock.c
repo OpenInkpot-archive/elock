@@ -1,8 +1,29 @@
+/*
+ * Copyright (C) 2009 Alexander Kerner <lunohod@openinkpot.org>
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
+ * 02110-1301, USA.
+ */
+
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
 #include <string.h>
 #include <libintl.h>
+#include <time.h>
 
 #include <Ecore.h>
 #include <Ecore_X.h>
@@ -18,6 +39,8 @@
 #define LOCK "Lock"
 #define UNLOCK "Unlock"
 
+#define NOTIME "--:--"
+
 Ecore_Evas *main_win;
 
 void exit_all(void* param) { ecore_main_loop_quit(); }
@@ -29,6 +52,63 @@ static void die(const char* fmt, ...)
 	vfprintf(stderr, fmt, ap);
 	va_end(ap);
 	exit(EXIT_FAILURE);
+}
+
+static void update_time()
+{
+	Evas_Object *o = evas_object_name_find(ecore_evas_get(main_win), "edje");
+	char *tstr = NULL;
+	time_t tim = time(NULL);
+	struct tm *t = localtime(&tim);
+
+	if(t->tm_year >= 109) {
+		asprintf(&tstr, "%2d:%02d", t->tm_hour, t->tm_min);
+		edje_object_part_text_set(o, "elock/time", tstr);
+		free(tstr);
+	} else
+		edje_object_part_text_set(o, "elock/time", NOTIME);
+}
+
+static void update_battery()
+{
+    char b[10];
+    int charge;
+    int x;
+    FILE *f_cf, *f_cn;
+
+    if((f_cn = fopen("/sys/class/power_supply/n516-battery/charge_now", "r")) != NULL)
+		f_cf = fopen("/sys/class/power_supply/n516-battery/charge_full_design", "r");
+	else {
+		f_cn = fopen("/sys/class/power_supply/lbookv3_battery/charge_now", "r");
+		f_cf = fopen("/sys/class/power_supply/lbookv3_battery/charge_full_design", "r");
+	}
+
+    if((f_cn != NULL) && (f_cf != NULL)) {
+        fgets(b, 10, f_cn);
+        charge = atoi(b);
+        fgets(b, 10, f_cf);
+        x = atoi(b);
+        if(x > 0)
+            charge = charge * 100 / atoi(b);
+    } else
+        charge = 0;
+
+    if(f_cn != NULL)
+        fclose(f_cn);
+    if(f_cf != NULL)
+        fclose(f_cf);
+
+	Evas_Object *o = evas_object_name_find(ecore_evas_get(main_win), "edje");
+	if(charge < 5)
+		edje_object_signal_emit(o, "set_batt_empty", "");
+	else if(charge < 25)
+		edje_object_signal_emit(o, "set_batt_1/4", "");
+	else if(charge < 50)
+		edje_object_signal_emit(o, "set_batt_2/4", "");
+	else if(charge < 75)
+		edje_object_signal_emit(o, "set_batt_3/4", "");
+	else
+		edje_object_signal_emit(o, "set_batt_full", "");
 }
 
 typedef struct
@@ -53,9 +133,11 @@ static int _client_del(void* param, int ev_type, void* ev)
     client_data_t* msg = ecore_con_client_data_get(e->client);
 
     /* Handle */
-	if(strlen(LOCK) == msg->size && !strncmp(LOCK, msg->msg, msg->size))
+	if(strlen(LOCK) == msg->size && !strncmp(LOCK, msg->msg, msg->size)) {
+		update_time();
+		update_battery();
 		ecore_evas_show(main_win);
-	else if(strlen(UNLOCK) == msg->size && !strncmp(UNLOCK, msg->msg, msg->size))
+	} else if(strlen(UNLOCK) == msg->size && !strncmp(UNLOCK, msg->msg, msg->size))
 		ecore_evas_hide(main_win);
 
     //printf(": %.*s(%d)\n", msg->size, msg->msg, msg->size);
@@ -116,11 +198,13 @@ int main(int argc, char **argv)
 	evas_object_resize(edje, 600, 800);
 	evas_object_show(edje);
 
+	update_time();
+	update_battery();
+
 	char *t1 = gettext("Press and hold \"OK\" for 3-4 seconds to unlock the device");
 	edje_object_part_text_set(edje, "elock/label", t1);
 
-	edje_object_signal_emit(edje, "set_batt_full", "");
-
+//	ecore_evas_show(main_win);
 	ecore_main_loop_begin();
 
 	edje_shutdown();
