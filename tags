@@ -1,3 +1,0 @@
-key_handler	src/elock.c	/^key_handler(void *data, Evas *evas, Evas_Object *obj, void *event_info)$/;"	f	file:	signature:(void *data, Evas *evas, Evas_Object *obj, void *event_info)
-main	src/elock.c	/^int main(int argc, char **argv)$/;"	f	signature:(int argc, char **argv)
-main_win	src/elock.c	/^Ecore_Evas *main_win;$/;"	v
