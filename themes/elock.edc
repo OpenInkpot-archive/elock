@@ -152,8 +152,8 @@ collections {
 					state, "default" 0.0;
 					aspect, 1 1;
 					fixed, 1 1;
-					rel1 { relative, 0.2 0.2; offset, 0 0; to, "elock/rect3"; }
-					rel2 { relative, 0.8 0.6; offset, 0 0; to, "elock/rect3"; }
+					rel1 { relative, 0.3 0.2; offset, 0 0; to, "elock/rect3"; }
+					rel2 { relative, 0.7 0.6; offset, 0 0; to, "elock/rect3"; }
 					image {
 						normal, "alarm1.png";
 					}

@@ -158,6 +158,16 @@ static int _client_data(void* param, int ev_type, void* ev)
     return 0;
 }
 
+static void main_win_resize_handler(Ecore_Evas* main_win)
+{
+	int w, h;
+	Evas* canvas = ecore_evas_get(main_win);
+	evas_output_size_get(canvas, &w, &h);
+
+	Evas_Object* edje = evas_object_name_find(canvas, "edje");
+	evas_object_resize(edje, w, h);
+}
+
 int main(int argc, char **argv)
 {
 	if(!evas_init())
@@ -188,6 +198,8 @@ int main(int argc, char **argv)
 	ecore_evas_shaped_set(main_win, 0);
 	ecore_evas_title_set(main_win, "elock");
 	ecore_evas_name_class_set(main_win, "elock", "elock");
+
+	ecore_evas_callback_resize_set(main_win, main_win_resize_handler);
 
 	Evas *main_canvas = ecore_evas_get(main_win);
 
