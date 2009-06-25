@@ -6,8 +6,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-05-13 17:56+0200\n"
+"Report-Msgid-Bugs-To: lunohod@openinkpot.org\n"
+"POT-Creation-Date: 2009-06-25 18:56+0700\n"
 "PO-Revision-Date: 2009-06-25 13:00+0200\n"
 "Last-Translator: Tomasz Długosz <tomek3d@gmail.com>\n"
 "Language-Team: Polish\n"
@@ -17,6 +17,6 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
-#: src/elock.c:97
+#: src/elock.c:216
 msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
 msgstr "Wciśnij i przytrzymaj \"OK\" 3-4 sekundy aby odblokować czytnik"
