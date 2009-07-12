@@ -1,8 +1,8 @@
-# SOME DESCRIPTIVE TITLE.
-# This file is put in the public domain.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# elock
+# Copyright (C) 2009 Alexander Kerner <lunohod@openinkpot.org>
+# This file is distributed under the same license as the elock package.
+# Alexander Kerner <lunohod@openinkpot.org>, 2009
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: elock 0.1\n"
@@ -12,9 +12,9 @@ msgstr ""
 "Last-Translator: Васил Бадев <vbadev@gmail.com>\n"
 "Language-Team: Bulgarian <openinkpot-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: src/elock.c:216
 msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
-msgstr "За да отключите устройството натиснете и задръжте бутона \„OK\“ за 3-4 секунди"
+msgstr "За да отключите устройството натиснете и задръжте бутона \"OK\" за 3-4 секунди"
