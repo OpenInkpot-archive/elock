@@ -151,7 +151,7 @@ int main(int argc, char **argv)
 	edje_object_part_text_set(edje, "elock/title", gettext("Keyboard Lock"));
 	edje_object_part_text_set(edje, "elock/text", gettext("Press and hold \"OK\" for 3-4 seconds to unlock the device"));
 
-	ecore_evas_show(main_win);
+//	ecore_evas_show(main_win);
 	ecore_main_loop_begin();
 
 	edje_shutdown();
