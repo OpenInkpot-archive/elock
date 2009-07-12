@@ -1,231 +1,76 @@
 images {
-	image, "lemmling.png" COMP;
-	image, "batt_01.png" COMP;
-	image, "batt_02.png" COMP;
-	image, "batt_03.png" COMP;
-	image, "batt_04.png" COMP;
-	image, "batt_05.png" COMP;
-	image, "alarm1.png" COMP;
+	image, "lock.png" COMP;
 }
 
 styles {
 	style {
 		name, "textblock_style";
-		base, "font=sans:style=Bold font_size=20 align=center valign=center color=#000 wrap=word";
-		tag, "br" "   \n";
+		base, "font=sans-serif font_size=24 align=left valign=middle color=#000 wrap=word";
 	}
 }
 
 collections {
 	group {
 		name, "elock";
-		min, 600 800;
-		max, 600 800;
 		parts {
 			part {
-				name, "elock/background";
+				name, "elock/bg";
 				type, RECT;
 				description {
 					state, "default" 0.0;
-					color, 55 55 55 255;
+					color, 255 255 255 255;
 					rel1 { relative, 0.0 0.0; offset, 0 0; }
 					rel2 { relative, 1.0 1.0; offset, 0 0; }
 				}
 			}
 			part {
-				name, "elock/rect1";
-				type, RECT;
-				description {
-					state, "default" 0.0;
-					color, 255 255 255 255;
-					rel1 { relative, 0.0 0.0; offset, 3 3; }
-					rel2 { relative, 1.0 0.75; offset, -3 -3; }
-				}
-			}
-			part {
-				name, "elock/rect1/image";
+				name, "elock/image";
 				type, IMAGE;
 				mouse_events, 0;
 				description {
 					state, "default" 0.0;
-					min, 450 424;
-					max, 450 424;
-					rel1 { relative, 0.0 0.0; offset, 0 0; to, "elock/rect1"; }
-					rel2 { relative, 1.0 1.0; offset, 0 0; to, "elock/rect1"; }
+					min, 600 377;
+					max, 600 377;
+					rel1 { relative, 0.0 1.0; offset, 0 -377; to, "elock/bg"; }
+					rel2 { relative, 1.0 1.0; offset, -1 -1; to, "elock/bg"; }
 					image {
-						normal, "lemmling.png";
+						normal, "lock.png";
 					}
 				}
 			}
 			part {
-				name, "elock/rect2";
-				type, RECT;
-				description {
-					state, "default" 0.0;
-					color, 255 255 255 255;
-					rel1 { relative, 0.0 0.75; offset, 3 0; }
-					rel2 { relative, 1.0 0.75; offset, -3 3; }
-				}
-			}
-			
-			part {
-				name, "elock/rect3";
-				type, RECT;
-				description {
-					state, "default" 0.0;
-					color, 255 255 255 255;
-					rel1 { relative, 0.0 0.75; offset, 3 6; }
-					rel2 { relative, 0.25 1.0; offset, 0 -3; }
-				}
-			}
-
-			part {
-				name, "elock/rect4";
-				type, RECT;
-				description {
-					state, "default" 0.0;
-					color, 255 255 255 255;
-					rel1 { relative, 0.25 0.75; offset, 3 6; }
-					rel2 { relative, 0.75 1.0; offset, 0 -3; }
-				}
-			}
-
-			part {
-				name, "elock/rect5";
-				type, RECT;
-				description {
-					state, "default" 0.0;
-					color, 255 255 255 255;
-					rel1 { relative, 0.75 0.75; offset, 3 6; }
-					rel2 { relative, 1.0 1.0; offset, -3 -3; }
-				}
-			}
-
-			part {
-				name, "elock/battery";
-				type, IMAGE;
-				mouse_events, 0;
-				description {
-					state, "default" 0.0;
-					aspect, 1 1;
-					fixed, 1 1;
-					rel1 { relative, 0.2 0.2; offset, 0 0; to, "elock/rect5"; }
-					rel2 { relative, 0.8 0.8; offset, 0 0; to, "elock/rect5"; }
-					image {
-						normal, "batt_01.png";
-					}
-				}
-				description {
-					state, "1/4" 0.0;
-					inherit, "default" 0.0;
-					image {
-						normal, "batt_02.png";
-					}
-				}
-				description {
-					state, "2/4" 0.0;
-					inherit, "default" 0.0;
-					image {
-						normal, "batt_03.png";
-					}
-				}
-				description {
-					state, "3/4" 0.0;
-					inherit, "default" 0.0;
-					image {
-						normal, "batt_04.png";
-					}
-				}
-				description {
-					state, "full" 0.0;
-					inherit, "default" 0.0;
-					image {
-						normal, "batt_05.png";
-					}
-				}
-			}
-			part {
-				name, "elock/alarm";
-				type, IMAGE;
-				mouse_events, 0;
-				description {
-					state, "default" 0.0;
-					aspect, 1 1;
-					fixed, 1 1;
-					rel1 { relative, 0.3 0.2; offset, 0 0; to, "elock/rect3"; }
-					rel2 { relative, 0.7 0.6; offset, 0 0; to, "elock/rect3"; }
-					image {
-						normal, "alarm1.png";
-					}
-				}
-			}
-			part {
-				name, "elock/time";
+				name, "elock/title";
 				type, TEXT;
 				mouse_events, 0;
 				description {
 					state, "default" 0.0;
-					color, 55 55 55 255;
-					rel1 { relative, 0.1 0.6; offset, 0 0; to, "elock/rect3"; }
-					rel2 { relative, 0.9 1.0; offset, 0 0; to, "elock/rect3"; }
+					color, 0 0 0 255;
 					text {
-						text, "7:00";
-						font, "sans:style=Bold";
-						size, 30;
+						font, "sans-serif";
+						size, 24;
 						text_class, "crome";
+						text, "Блокировка кнопок";
 					}
+					align, 0.0 0.0;
+					rel1 { relative, 0.0 0.0; offset, 11 42; to, "elock/image"; }
+					rel2 { relative, 0.0 0.0; offset, 590 65; to, "elock/image"; }
 				}
 			}
 			part {
-				name, "elock/label";
+				name, "elock/text";
 				type, TEXTBLOCK;
+				multiline, 1;
+				mouse_events, 0;
 				description {
 					state, "default" 0.0;
-					rel1 { relative, 0.0 0.0; offset, 3 6; to, "elock/rect4"; }
-					rel2 { relative, 1.0 1.0; offset, 0 -3; to, "elock/rect4"; }
+					color, 0 0 0 255;
 					text {
-						//text, "Для включения устройства<br>нажмите кнопку \"OK\"<br>3-4 секунды";
-						text, "Press the \"OK\" button and hold for 3-4 seconds to unlock the device";
 						style, "textblock_style";
+						text, "Для снятия блокировки кнопок нажмите \"OK\" и удерживайте 3-4 сек.";
 					}
-				}
-			}
-		}
-
-		programs {
-			program {
-				name, "set_batt_full";
-				signal, "set_batt_full";
-				script {
-					set_state(PART:"elock/battery", "full", 0.0);
-				}
-			}
-			program {
-				name, "set_batt_1/4";
-				signal, "set_batt_1/4";
-				script {
-					set_state(PART:"elock/battery", "1/4", 0.0);
-				}
-			}
-			program {
-				name, "set_batt_2/4";
-				signal, "set_batt_2/4";
-				script {
-					set_state(PART:"elock/battery", "2/4", 0.0);
-				}
-			}
-			program {
-				name, "set_batt_3/4";
-				signal, "set_batt_3/4";
-				script {
-					set_state(PART:"elock/battery", "3/4", 0.0);
-				}
-			}
-			program {
-				name, "set_batt_empty";
-				signal, "set_batt_empty";
-				script {
-					set_state(PART:"elock/battery", "default", 0.0);
+					align, 0.0 0.0;
+					rel1 { relative, 0.0 0.0; offset, 200 150; to, "elock/image"; }
+					rel2 { relative, 0.0 0.0; offset, 580 300; to, "elock/image"; }
 				}
 			}
 		}

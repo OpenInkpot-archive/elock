@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: elock 0.1\n"
 "Report-Msgid-Bugs-To: lunohod@openinkpot.org\n"
-"POT-Creation-Date: 2009-06-25 18:56+0700\n"
+"POT-Creation-Date: 2009-07-13 01:12+0200\n"
 "PO-Revision-Date: 2009-06-26 15:06+0300\n"
 "Last-Translator: Васил Бадев <vbadev@gmail.com>\n"
 "Language-Team: Bulgarian <openinkpot-l10n@googlegroups.com>\n"
@@ -15,6 +15,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/elock.c:216
+#: src/elock.c:151
+msgid "Keyboard Lock"
+msgstr ""
+
+#: src/elock.c:152
 msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
-msgstr "За да отключите устройството натиснете и задръжте бутона \"OK\" за 3-4 секунди"
+msgstr ""
+"За да отключите устройството натиснете и задръжте бутона \"OK\" за 3-4 "
+"секунди"
