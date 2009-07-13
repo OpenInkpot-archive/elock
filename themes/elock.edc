@@ -48,12 +48,22 @@ collections {
 					text {
 						font, "sans-serif";
 						size, 24;
-						text_class, "crome";
-						text, "Блокировка кнопок";
+						text, "Keyboard Lock";
 					}
-					align, 0.0 0.0;
 					rel1 { relative, 0.0 0.0; offset, 11 42; to, "elock/image"; }
-					rel2 { relative, 0.0 0.0; offset, 590 65; to, "elock/image"; }
+					rel2 { relative, 0.0 0.0; offset, 590 63; to, "elock/image"; }
+					align, 0.0 0.0;
+				}
+			}
+			part {
+				name, "elock/text_rect";
+				type, RECT;
+				mouse_events, 0;
+				description {
+					state, "default" 0.0;
+					color, 255 255 255 0;
+					rel1 { relative, 0.0 0.0; offset, 200 150; to, "elock/image"; }
+					rel2 { relative, 0.0 0.0; offset, 580 300; to, "elock/image"; }
 				}
 			}
 			part {
@@ -66,11 +76,12 @@ collections {
 					color, 0 0 0 255;
 					text {
 						style, "textblock_style";
-						text, "Для снятия блокировки кнопок нажмите \"OK\" и удерживайте 3-4 сек.";
+						max, 0 1;
+						text, "Press and hold \"OK\" for 3-4 seconds to unlock the device";
 					}
-					align, 0.0 0.0;
-					rel1 { relative, 0.0 0.0; offset, 200 150; to, "elock/image"; }
-					rel2 { relative, 0.0 0.0; offset, 580 300; to, "elock/image"; }
+					align, 0.0 0.4;
+					rel1 { relative, 0.0 0.0; offset, 0 0; to, "elock/text_rect"; }
+					rel2 { relative, 1.0 1.0; offset, 0 0; to, "elock/text_rect"; }
 				}
 			}
 		}
