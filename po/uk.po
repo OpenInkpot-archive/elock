@@ -17,9 +17,8 @@ msgstr ""
 
 #: src/elock.c:151
 msgid "Keyboard Lock"
-msgstr ""
+msgstr "Клавіатуру заблоковано"
 
 #: src/elock.c:152
 msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
-msgstr ""
-"Щоб розблокувати пристрій натисніть та утримуйте кнопку  ”ОК” 3-4 секунди"
+msgstr "Для розблокування пристрою натисніть та утримуйте \"ОК\" протягом 3-4 секунд"
