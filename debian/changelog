@@ -1,3 +1,13 @@
+elock (0.3-1) asimov; urgency=low
+
+  * Added software keylocking (elock now works with V3)
+  * Source code and packaging cleanup.
+  * Added translations: Spanish, Catalan, Italian, German
+  * Updated translations: Chinese, Czech, Hungarian, Polish, Bulgarian,
+    Russian
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Sun, 30 Aug 2009 01:25:51 +0700
+
 elock (0.2-4) asimov; urgency=low
 
   * Ukrainian translation updated.
