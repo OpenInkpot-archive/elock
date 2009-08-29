@@ -11,5 +11,6 @@ PKG_CHECK_MODULES(ECORE_CON, [ecore-con])
 PKG_CHECK_MODULES(ECORE_EVAS, [ecore-evas])
 PKG_CHECK_MODULES(EVAS, [evas])
 PKG_CHECK_MODULES(EDJE, [edje])
+PKG_CHECK_MODULES(LIBKEYS, [libkeys])
 
-AC_OUTPUT([Makefile src/Makefile themes/Makefile po/Makefile])
+AC_OUTPUT([Makefile src/Makefile themes/Makefile data/Makefile po/Makefile])
