@@ -50,15 +50,18 @@ typedef struct
     Ecore_Evas* main_win;
 } elock_state_t;
 
-void exit_all(void* param) { ecore_main_loop_quit(); }
+void exit_all(void* param)
+{
+    ecore_main_loop_quit();
+}
 
 static void die(const char* fmt, ...)
 {
-	va_list ap;
-	va_start(ap, fmt);
-	vfprintf(stderr, fmt, ap);
-	va_end(ap);
-	exit(EXIT_FAILURE);
+    va_list ap;
+    va_start(ap, fmt);
+    vfprintf(stderr, fmt, ap);
+    va_end(ap);
+    exit(EXIT_FAILURE);
 }
 
 static void do_lock(elock_state_t* state)
@@ -93,7 +96,7 @@ static int _client_del(void* param, int ev_type, void* ev)
     client_data_t* msg = ecore_con_client_data_get(e->client);
 
     /* Handle */
-	if(strlen(LOCK) == msg->size && !strncmp(LOCK, msg->msg, msg->size))
+    if(strlen(LOCK) == msg->size && !strncmp(LOCK, msg->msg, msg->size))
         do_lock((elock_state_t*)param);
     else if(strlen(UNLOCK) == msg->size && !strncmp(UNLOCK, msg->msg, msg->size))
         do_unlock((elock_state_t*)param);
@@ -136,58 +139,58 @@ static int main_win_show_handler(void* param, int ev_type, void* ev)
 
 static void main_win_resize_handler(Ecore_Evas* main_win)
 {
-	int w, h;
-	Evas* canvas = ecore_evas_get(main_win);
-	evas_output_size_get(canvas, &w, &h);
+    int w, h;
+    Evas* canvas = ecore_evas_get(main_win);
+    evas_output_size_get(canvas, &w, &h);
 
-	Evas_Object* edje = evas_object_name_find(canvas, "edje");
-	evas_object_resize(edje, w, h);
+    Evas_Object* edje = evas_object_name_find(canvas, "edje");
+    evas_object_resize(edje, w, h);
 }
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
-	if(!evas_init())
-		die("Unable to initialize Evas\n");
-	if(!ecore_init())
-		die("Unable to initialize Ecore\n");
-	if(!ecore_con_init())
-		die("Unable to initialize Ecore_Con\n");
-	if(!ecore_evas_init())
-		die("Unable to initialize Ecore_Evas\n");
-	if(!edje_init())
-		die("Unable to initialize Edje\n");
+    if(!evas_init())
+        die("Unable to initialize Evas\n");
+    if(!ecore_init())
+        die("Unable to initialize Ecore\n");
+    if(!ecore_con_init())
+        die("Unable to initialize Ecore_Con\n");
+    if(!ecore_evas_init())
+        die("Unable to initialize Ecore_Evas\n");
+    if(!edje_init())
+        die("Unable to initialize Edje\n");
 
     bool hardware_lock = argc > 1 && !strcmp(argv[1], "--hardware-lock");
 
     elock_state_t state;
 
-	setlocale(LC_ALL, "");
-	textdomain("elock");
+    setlocale(LC_ALL, "");
+    textdomain("elock");
     state.keys = keys_alloc("elock");
 
     ecore_x_io_error_handler_set(exit_all, NULL);
 
-	state.main_win = ecore_evas_software_x11_new(0, 0, 0, 0, 600, 800);
-	ecore_evas_borderless_set(state.main_win, 0);
-	ecore_evas_shaped_set(state.main_win, 0);
-	ecore_evas_title_set(state.main_win, "elock");
-	ecore_evas_name_class_set(state.main_win, "elock", "elock");
+    state.main_win = ecore_evas_software_x11_new(0, 0, 0, 0, 600, 800);
+    ecore_evas_borderless_set(state.main_win, 0);
+    ecore_evas_shaped_set(state.main_win, 0);
+    ecore_evas_title_set(state.main_win, "elock");
+    ecore_evas_name_class_set(state.main_win, "elock", "elock");
 
-	ecore_evas_callback_resize_set(state.main_win, main_win_resize_handler);
+    ecore_evas_callback_resize_set(state.main_win, main_win_resize_handler);
 
-	ecore_con_server_add(ECORE_CON_LOCAL_USER, "elock", 0, NULL);
-	ecore_event_handler_add(ECORE_CON_EVENT_CLIENT_ADD, _client_add, NULL);
-	ecore_event_handler_add(ECORE_CON_EVENT_CLIENT_DATA, _client_data, NULL);
-	ecore_event_handler_add(ECORE_CON_EVENT_CLIENT_DEL, _client_del, &state);
+    ecore_con_server_add(ECORE_CON_LOCAL_USER, "elock", 0, NULL);
+    ecore_event_handler_add(ECORE_CON_EVENT_CLIENT_ADD, _client_add, NULL);
+    ecore_event_handler_add(ECORE_CON_EVENT_CLIENT_DATA, _client_data, NULL);
+    ecore_event_handler_add(ECORE_CON_EVENT_CLIENT_DEL, _client_del, &state);
 
-	Evas* main_canvas = ecore_evas_get(state.main_win);
+    Evas* main_canvas = ecore_evas_get(state.main_win);
 
-	Evas_Object* edje = edje_object_add(main_canvas);
-	evas_object_name_set(edje, "edje");
-	edje_object_file_set(edje, DATADIR "/elock/themes/elock.edj", "elock");
-	evas_object_move(edje, 0, 0);
-	evas_object_resize(edje, 600, 800);
-	evas_object_show(edje);
+    Evas_Object* edje = edje_object_add(main_canvas);
+    evas_object_name_set(edje, "edje");
+    edje_object_file_set(edje, DATADIR "/elock/themes/elock.edj", "elock");
+    evas_object_move(edje, 0, 0);
+    evas_object_resize(edje, 600, 800);
+    evas_object_show(edje);
     evas_object_focus_set(edje, true);
 
     if(!hardware_lock)
@@ -202,21 +205,21 @@ int main(int argc, char **argv)
     }
     else
     {
-        edje_object_part_text_set(edje, "elock/text", gettext("Press and hold \"OK\" for 3-4 seconds to unlock the device"));
+        edje_object_part_text_set(edje, "elock/text",
+                                  gettext("Press and hold \"OK\" for 3-4 seconds to unlock the device"));
     }
 
-	edje_object_part_text_set(edje, "elock/title", gettext("Keyboard Lock"));
+    edje_object_part_text_set(edje, "elock/title", gettext("Keyboard Lock"));
 
-
-	ecore_main_loop_begin();
+    ecore_main_loop_begin();
 
     keys_free(state.keys);
 
-	edje_shutdown();
-	ecore_evas_shutdown();
-	ecore_con_shutdown();
-	ecore_shutdown();
-	evas_shutdown();
+    edje_shutdown();
+    ecore_evas_shutdown();
+    ecore_con_shutdown();
+    ecore_shutdown();
+    evas_shutdown();
 
-	return 0;
+    return 0;
 }
