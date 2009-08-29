@@ -10,5 +10,8 @@ Standards-Version: 3.8.3
 Package: elock
 Architecture: any
 Depends: ${shlibs:Depends}
-Description: Screen lock
- Screen lock
+Description: simple EFL-based screen locker for OpenInkpot
+ elock is a screen locker for OpenInkpot with two operation modes:
+  - hardware-assisted. Key locking is performed by hardware, elock just displays
+    the "device locked" screen.
+  - software-based. elock works like a usual screensaver program
