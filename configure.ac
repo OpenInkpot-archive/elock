@@ -6,11 +6,7 @@ AC_PROG_CC
 
 PKG_PROG_PKG_CONFIG
 
-PKG_CHECK_MODULES(ECORE, [ecore])
-PKG_CHECK_MODULES(ECORE_CON, [ecore-con])
-PKG_CHECK_MODULES(ECORE_EVAS, [ecore-evas])
-PKG_CHECK_MODULES(EVAS, [evas])
-PKG_CHECK_MODULES(EDJE, [edje])
+PKG_CHECK_MODULES(EFL, [ecore ecore-con ecore-evas evas edje])
 PKG_CHECK_MODULES(LIBKEYS, [libkeys])
 
 AC_OUTPUT([Makefile src/Makefile themes/Makefile data/Makefile po/Makefile])
