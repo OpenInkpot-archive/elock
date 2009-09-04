@@ -1,6 +1,6 @@
 # translation of elock.po to catalan
 # This file is put in the public domain.
-#
+# 
 # Miguel <ink@canteras.org>, 2009.
 msgid ""
 msgstr ""
@@ -14,19 +14,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/elock.c:204
-#, fuzzy
-msgid "Press Power button to unlock the device"
-msgstr ""
-"Mantingui pressionat  \"OK\" durant 3-4 segonds per a desbloquejar el "
-"dispositiu"
-
 #: src/elock.c:209
 msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
-msgstr ""
-"Mantingui pressionat  \"OK\" durant 3-4 segonds per a desbloquejar el "
-"dispositiu"
+msgstr "Mantingui pressionat  \"OK\" durant 3-4 segonds per a desbloquejar el dispositiu"
 
 #: src/elock.c:212
 msgid "Keyboard Lock"
 msgstr "Bloquejar dispositiu"
+
+#: src/elock.c:204
+msgid "Press Power button to unlock the device"
+msgstr "Premeu el botó d'engegada per a desbloquejar el dispositiu"
