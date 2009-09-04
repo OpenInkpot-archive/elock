@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: elock\n"
 "Report-Msgid-Bugs-To: lunohod@openinkpot.org\n"
-"POT-Creation-Date: 2009-07-13 01:12+0200\n"
+"POT-Creation-Date: 2009-09-04 19:36+0700\n"
 "PO-Revision-Date: 2009-08-21 13:30+0200\n"
 "Last-Translator: Mascal <mascal@mascal.it>\n"
 "Language-Team: \n"
@@ -14,11 +14,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: src/elock.c:204
+#, fuzzy
+msgid "Press Power button to unlock the device"
+msgstr "Tieni premuto \"OK\" 3-4 secondi per sbloccare il dispositivo"
 
-#: src/elock.c:151
-msgid "Keyboard Lock"
-msgstr "Blocco tasti"
-
-#: src/elock.c:152
+#: src/elock.c:209
 msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
 msgstr "Tieni premuto \"OK\" 3-4 secondi per sbloccare il dispositivo"
+
+#: src/elock.c:212
+msgid "Keyboard Lock"
+msgstr "Blocco tasti"
