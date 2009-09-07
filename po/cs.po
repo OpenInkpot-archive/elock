@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: lunohod@openinkpot.org\n"
 "POT-Creation-Date: 2009-09-04 19:36+0700\n"
-"PO-Revision-Date: 2009-08-19 11:29+0100\n"
+"PO-Revision-Date: 2009-09-07 12:06+0100\n"
 "Last-Translator: ben1981 <ben1981@centrum.cz>\n"
 "Language-Team: Czech <openinkpot-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -17,9 +17,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: src/elock.c:204
-#, fuzzy
 msgid "Press Power button to unlock the device"
-msgstr "Pro odemčení zařízení zmáčni \"OK\" a drž 3-4 sekundy"
+msgstr "Pro odemčení zařízení zmáčni tlačítko Power"
 
 #: src/elock.c:209
 msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
