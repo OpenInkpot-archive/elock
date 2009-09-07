@@ -1,29 +1,31 @@
-# elock
-# Copyright (C) 2009 Alexander Kerner <lunohod@openinkpot.org>
-# This file is distributed under the same license as the elock package.
-# Alexander Kerner <lunohod@openinkpot.org>, 2009
+# translation of elock.po to French
+# This file is put in the public domain.
 #
-#, fuzzy
+# Louvre <diogenedebian@gmail.com>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: elock\n"
 "Report-Msgid-Bugs-To: lunohod@openinkpot.org\n"
 "POT-Creation-Date: 2009-09-04 19:36+0700\n"
-"PO-Revision-Date: 2009-09-07 12:06+0100\n"
-"Last-Translator: ben1981 <ben1981@centrum.cz>\n"
-"Language-Team: Czech <openinkpot-l10n@googlegroups.com>\n"
+"PO-Revision-Date: 2009-06-26 15:30+0200\n"
+"Last-Translator: Louvre <diogenedebian@gmail.com>\n"
+"Language-Team: French <openinkpot-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: src/elock.c:204
+#, fuzzy
 msgid "Press Power button to unlock the device"
-msgstr "Pro odemčení zařízení zmáčni tlačítko Power"
+msgstr ""
+"Appuyez sur \"OK\" pendant 3 à 4 secondes pour déverrouiller l'appareil"
 
 #: src/elock.c:209
 msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
-msgstr "Pro odemčení zařízení zmáčni \"OK\" a drž 3-4 sekundy"
+msgstr ""
+"Appuyez sur \"OK\" pendant 3 à 4 secondes pour déverrouiller l'appareil"
 
 #: src/elock.c:212
 msgid "Keyboard Lock"
-msgstr "Klávesy Zamknuty"
+msgstr ""
