@@ -1,3 +1,9 @@
+elock (0.3-2) asimov; urgency=low
+
+  * Theme adjusted to new ecore engine.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Wed, 16 Sep 2009 05:03:31 +0700
+
 elock (0.3-1) asimov; urgency=low
 
   * Added software keylocking (elock now works with V3)
