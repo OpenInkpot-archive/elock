@@ -1,4 +1,4 @@
-gelock (0.3-2) asimov; urgency=low
+elock (0.3-2) asimov; urgency=low
 
   * Theme adjusted to new ecore engine.
   * Updated translations: German, Polish, Catalan, Spanish, Hungarian,
