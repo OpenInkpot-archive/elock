@@ -2,7 +2,7 @@
 # Copyright (C) 2009 Alexander Kerner <lunohod@openinkpot.org>
 # This file is distributed under the same license as the elock package.
 # Alexander Kerner <lunohod@openinkpot.org>, 2009
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: elock\n"
@@ -15,11 +15,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/elock.c:204
-#, fuzzy
-msgid "Press Power button to unlock the device"
-msgstr "Для снятия блокировки кнопок нажмите «OK» и удерживайте 3-4 секунды"
-
 #: src/elock.c:209
 msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
 msgstr "Для снятия блокировки кнопок нажмите «OK» и удерживайте 3-4 секунды"
@@ -27,3 +22,7 @@ msgstr "Для снятия блокировки кнопок нажмите «O
 #: src/elock.c:212
 msgid "Keyboard Lock"
 msgstr "Клавиатура заблокирована"
+
+#: src/elock.c:204
+msgid "Press Power button to unlock the device"
+msgstr "Для снятия блокировки нажмите кнопку включения."
