@@ -15,10 +15,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/elock.c:209
-msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
-msgstr "キーロック解除は\"OK\"を3〜4秒押してください"
-
 #: src/elock.c:212
 msgid "Keyboard Lock"
 msgstr "キーロック"
@@ -26,3 +22,9 @@ msgstr "キーロック"
 #: src/elock.c:204
 msgid "Press Power button to unlock the device"
 msgstr "電源ボタンでキーロック解除"
+
+#: src/elock.c:209
+msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
+msgstr ""
+"キーロック解除は\"OK\"を\n"
+"3〜4秒押してください"
