@@ -27,6 +27,7 @@
 #include <libintl.h>
 #include <time.h>
 #include <unistd.h>
+#include <err.h>
 
 #include <Ecore.h>
 #include <Ecore_X.h>
@@ -53,15 +54,6 @@ typedef struct
 void exit_all(void* param)
 {
     ecore_main_loop_quit();
-}
-
-static void die(const char* fmt, ...)
-{
-    va_list ap;
-    va_start(ap, fmt);
-    vfprintf(stderr, fmt, ap);
-    va_end(ap);
-    exit(EXIT_FAILURE);
 }
 
 static void do_lock(elock_state_t* state)
@@ -133,7 +125,7 @@ static int main_win_show_handler(void* param, int ev_type, void* ev)
     elock_state_t* state = param;
     Ecore_X_Window win = ecore_evas_software_x11_window_get(state->main_win);
     if(!ecore_x_keyboard_grab(win))
-        die("Unable to grab keyboard\n");
+        errx(1, "Unable to grab keyboard");
     return 0;
 }
 
@@ -150,13 +142,13 @@ static void main_win_resize_handler(Ecore_Evas* main_win)
 int main(int argc, char** argv)
 {
     if(!ecore_con_init())
-        die("Unable to initialize Ecore_Con\n");
+        errx(1, "Unable to initialize Ecore_Con");
     if(!ecore_x_init(NULL))
-        die("Unable to initialize Ecore_X, maybe missing DISPLAY\n");
+        errx(1, "Unable to initialize Ecore_X, maybe missing DISPLAY");
     if(!ecore_evas_init())
-        die("Unable to initialize Ecore_Evas\n");
+        errx(1, "Unable to initialize Ecore_Evas");
     if(!edje_init())
-        die("Unable to initialize Edje\n");
+        errx(1, "Unable to initialize Edje");
 
     bool hardware_lock = argc > 1 && !strcmp(argv[1], "--hardware-lock");
 
