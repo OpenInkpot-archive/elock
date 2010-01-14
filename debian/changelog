@@ -1,3 +1,11 @@
+elock (0.3.2) UNRELEASED; urgency=low
+
+  * Code cleanup (replace hand-written die() with errx(3))
+  * Packaging cleanup (-O2)
+  * Code style fixed
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Thu, 14 Jan 2010 11:29:40 +0600
+
 elock (0.3.1) zelazny; urgency=low
 
   * Code and packaging cleanup.
