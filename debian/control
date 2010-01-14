@@ -15,3 +15,14 @@ Description: simple EFL-based screen locker for OpenInkpot
   - hardware-assisted. Key locking is performed by hardware, elock just displays
     the "device locked" screen.
   - software-based. elock works like a usual screensaver program
+
+Package: elock-dbg
+Architecture: any
+Depends: elock (= ${binary:Version})
+Description: simple EFL-based screen locker for OpenInkpot -- debugging information
+ elock is a screen locker for OpenInkpot with two operation modes:
+  - hardware-assisted. Key locking is performed by hardware, elock just displays
+    the "device locked" screen.
+  - software-based. elock works like a usual screensaver program
+ .
+ This package contains debugging information for elock.

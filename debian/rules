@@ -38,9 +38,10 @@ install: build
 binary-arch: build install
 	dh_testdir
 	dh_testroot
+	dh_installdirs
 	dh_compress
 	dh_fixperms
-	dh_strip
+	dh_strip --dbg-package=elock-dbg
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol
