@@ -1,3 +1,11 @@
+elock (0.3.1) zelazny; urgency=low
+
+  * Code and packaging cleanup.
+  * Added package with debugging info.
+  * New translations: Dutch, Japanese.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Thu, 14 Jan 2010 10:32:32 +0600
+
 elock (0.3-4) asimov; urgency=low
 
   * New translation: Latvian
