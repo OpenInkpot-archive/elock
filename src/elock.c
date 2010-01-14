@@ -151,6 +151,8 @@ int main(int argc, char** argv)
 {
     if(!ecore_con_init())
         die("Unable to initialize Ecore_Con\n");
+    if(!ecore_x_init(NULL))
+        die("Unable to initialize Ecore_X, maybe missing DISPLAY\n");
     if(!ecore_evas_init())
         die("Unable to initialize Ecore_Evas\n");
     if(!edje_init())
@@ -213,6 +215,7 @@ int main(int argc, char** argv)
 
     edje_shutdown();
     ecore_evas_shutdown();
+    ecore_x_shutdown();
     ecore_con_shutdown();
 
     return 0;
