@@ -45,109 +45,116 @@
 #define LOCK "Lock"
 #define UNLOCK "Unlock"
 
-typedef struct
-{
-    keys_t* keys;
-    Ecore_Evas* main_win;
+typedef struct {
+    keys_t *keys;
+    Ecore_Evas *main_win;
 } elock_state_t;
 
-void exit_all(void* param)
+static void
+exit_all(void *param)
 {
     ecore_main_loop_quit();
 }
 
-static void do_lock(elock_state_t* state)
+static void
+do_lock(elock_state_t *state)
 {
     ecore_evas_show(state->main_win);
 }
 
-static void do_unlock(elock_state_t* state)
+static void
+do_unlock(elock_state_t *state)
 {
     ecore_evas_hide(state->main_win);
 }
 
-typedef struct
-{
-    char* msg;
+typedef struct {
+    char *msg;
     int size;
 } client_data_t;
 
-static int _client_add(void* param, int ev_type, void* ev)
+static int
+_client_add(void *param, int ev_type, void *ev)
 {
-    Ecore_Con_Event_Client_Add* e = ev;
-    client_data_t* msg = malloc(sizeof(client_data_t));
+    Ecore_Con_Event_Client_Add *e = ev;
+    client_data_t *msg = malloc(sizeof(client_data_t));
     msg->msg = strdup("");
     msg->size = 0;
     ecore_con_client_data_set(e->client, msg);
     return 0;
 }
 
-static int _client_del(void* param, int ev_type, void* ev)
+static int
+_client_del(void *param, int ev_type, void *ev)
 {
-    Ecore_Con_Event_Client_Del* e = ev;
-    client_data_t* msg = ecore_con_client_data_get(e->client);
+    Ecore_Con_Event_Client_Del *e = ev;
+    client_data_t *msg = ecore_con_client_data_get(e->client);
 
     /* Handle */
-    if(strlen(LOCK) == msg->size && !strncmp(LOCK, msg->msg, msg->size))
-        do_lock((elock_state_t*)param);
-    else if(strlen(UNLOCK) == msg->size && !strncmp(UNLOCK, msg->msg, msg->size))
-        do_unlock((elock_state_t*)param);
+    if (strlen(LOCK) == msg->size && !strncmp(LOCK, msg->msg, msg->size))
+        do_lock((elock_state_t *)param);
+    else if (strlen(UNLOCK) == msg->size && !strncmp(UNLOCK, msg->msg, msg->size))
+        do_unlock((elock_state_t *)param);
 
     free(msg->msg);
     free(msg);
     return 0;
 }
 
-static int _client_data(void* param, int ev_type, void* ev)
+static int
+_client_data(void *param, int ev_type, void *ev)
 {
-    Ecore_Con_Event_Client_Data* e = ev;
-    client_data_t* msg = ecore_con_client_data_get(e->client);
+    Ecore_Con_Event_Client_Data *e = ev;
+    client_data_t *msg = ecore_con_client_data_get(e->client);
     msg->msg = realloc(msg->msg, msg->size + e->size);
     memcpy(msg->msg + msg->size, e->data, e->size);
     msg->size += e->size;
     return 0;
 }
 
-static void main_win_key_handler(void* data, Evas* evas,
-                                 Evas_Object* obj, void* event_info)
+static void
+main_win_key_handler(void *data, Evas *evas, Evas_Object *obj, void *event_info)
 {
-    elock_state_t* state = data;
+    elock_state_t *state = data;
 
-    const char* action = keys_lookup_by_event(state->keys, "default",
-                                              (Evas_Event_Key_Up*)event_info);
+    const char *action = keys_lookup_by_event(state->keys, "default",
+                                              (Evas_Event_Key_Up *)event_info);
 
-    if(action && !strcmp(action, "Unlock"))
+    if (action && !strcmp(action, "Unlock"))
         do_unlock(state);
 }
 
-static int main_win_show_handler(void* param, int ev_type, void* ev)
+static int
+main_win_show_handler(void *param, int ev_type, void *ev)
 {
-    elock_state_t* state = param;
+    elock_state_t *state = param;
     Ecore_X_Window win = ecore_evas_software_x11_window_get(state->main_win);
-    if(!ecore_x_keyboard_grab(win))
+    if (!ecore_x_keyboard_grab(win))
         errx(1, "Unable to grab keyboard");
     return 0;
 }
 
-static void main_win_resize_handler(Ecore_Evas* main_win)
+static void
+main_win_resize_handler(Ecore_Evas *main_win)
 {
     int w, h;
-    Evas* canvas = ecore_evas_get(main_win);
+    Evas *canvas = ecore_evas_get(main_win);
     evas_output_size_get(canvas, &w, &h);
 
-    Evas_Object* edje = evas_object_name_find(canvas, "edje");
+    Evas_Object *edje = evas_object_name_find(canvas, "edje");
     evas_object_resize(edje, w, h);
 }
 
-int main(int argc, char** argv)
+int
+main(int argc, char **argv)
 {
-    if(!ecore_con_init())
+    if (!ecore_con_init())
         errx(1, "Unable to initialize Ecore_Con");
-    if(!ecore_x_init(NULL))
+    if (!ecore_x_init(NULL))
         errx(1, "Unable to initialize Ecore_X, maybe missing DISPLAY");
-    if(!ecore_evas_init())
+    if (!ecore_evas_init())
         errx(1, "Unable to initialize Ecore_Evas");
-    if(!edje_init())
+    if (!edje_init())
         errx(1, "Unable to initialize Edje");
 
     bool hardware_lock = argc > 1 && !strcmp(argv[1], "--hardware-lock");
@@ -173,9 +180,9 @@ int main(int argc, char** argv)
     ecore_event_handler_add(ECORE_CON_EVENT_CLIENT_DATA, _client_data, NULL);
     ecore_event_handler_add(ECORE_CON_EVENT_CLIENT_DEL, _client_del, &state);
 
-    Evas* main_canvas = ecore_evas_get(state.main_win);
+    Evas *main_canvas = ecore_evas_get(state.main_win);
 
-    Evas_Object* edje = edje_object_add(main_canvas);
+    Evas_Object *edje = edje_object_add(main_canvas);
     evas_object_name_set(edje, "edje");
     edje_object_file_set(edje, DATADIR "/elock/themes/elock.edj", "elock");
     evas_object_move(edje, 0, 0);
@@ -183,8 +190,7 @@ int main(int argc, char** argv)
     evas_object_show(edje);
     evas_object_focus_set(edje, true);
 
-    if(!hardware_lock)
-    {
+    if (!hardware_lock) {
         evas_object_event_callback_add(edje, EVAS_CALLBACK_KEY_UP,
                                        &main_win_key_handler, &state);
         ecore_event_handler_add(ECORE_X_EVENT_WINDOW_SHOW,
@@ -192,9 +198,7 @@ int main(int argc, char** argv)
 
         edje_object_part_text_set(edje, "elock/text",
                                   gettext("Press Power button to unlock the device"));
-    }
-    else
-    {
+    } else {
         edje_object_part_text_set(edje, "elock/text",
                                   gettext("Press and hold \"OK\" for 3-4 seconds to unlock the device"));
     }
