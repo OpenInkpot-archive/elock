@@ -1,8 +1,9 @@
-elock (0.3.2) UNRELEASED; urgency=low
+elock (0.3.2) zelazny; urgency=low
 
   * Code cleanup (replace hand-written die() with errx(3))
   * Packaging cleanup (-O2)
   * Code style fixed
+  * Fix Ecore_X / Edje deinitialization order to avoid segfault on exit
 
  -- Mikhail Gusarov <dottedmag@dottedmag.net>  Thu, 14 Jan 2010 11:29:40 +0600
 
