@@ -150,12 +150,12 @@ main(int argc, char **argv)
 {
     if (!ecore_con_init())
         errx(1, "Unable to initialize Ecore_Con");
+    if (!edje_init())
+        errx(1, "Unable to initialize Edje");
     if (!ecore_x_init(NULL))
         errx(1, "Unable to initialize Ecore_X, maybe missing DISPLAY");
     if (!ecore_evas_init())
         errx(1, "Unable to initialize Ecore_Evas");
-    if (!edje_init())
-        errx(1, "Unable to initialize Edje");
 
     bool hardware_lock = argc > 1 && !strcmp(argv[1], "--hardware-lock");
 
@@ -209,9 +209,9 @@ main(int argc, char **argv)
 
     keys_free(state.keys);
 
-    edje_shutdown();
     ecore_evas_shutdown();
     ecore_x_shutdown();
+    edje_shutdown();
     ecore_con_shutdown();
 
     return 0;
