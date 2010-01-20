@@ -1,3 +1,10 @@
+elock (0.3.3) zelazny; urgency=low
+
+  * .edj removed from repository as native edje_cc is available for build
+    (OI#131).
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Wed, 20 Jan 2010 19:44:31 +0600
+
 elock (0.3.2) zelazny; urgency=low
 
   * Code cleanup (replace hand-written die() with errx(3))
