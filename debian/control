@@ -1,8 +1,8 @@
 Source: elock
 Section: gui
 Maintainer: Alexander Kerner <lunohod@openinkpot.org>
-Build-Depends: debhelper (>= 7), autoconf, automake, pkg-config, libecore-dev, libevas-dev, libedje-dev, libkeys-dev
-XCS-Cross-Host-Build-Depends: debhelper (>= 7), autoconf, automake, pkg-config
+Build-Depends: debhelper (>= 7), autoconf, automake, pkg-config, libecore-dev, libevas-dev, libedje-dev, libkeys-dev, libedje-bin
+XCS-Cross-Host-Build-Depends: debhelper (>= 7), autoconf, automake, pkg-config, libedje-bin
 XCS-Cross-Build-Depends: libecore-dev, libevas-dev, libedje-dev, libkeys-dev
 Priority: optional
 Standards-Version: 3.8.3
