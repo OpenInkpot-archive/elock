@@ -10,4 +10,4 @@ PKG_CHECK_MODULES(EFL, [ecore ecore-con ecore-evas evas edje])
 PKG_CHECK_MODULES(LIBKEYS, [libkeys])
 PKG_CHECK_MODULES(EOI, [libeoi])
 
-AC_OUTPUT([Makefile src/Makefile themes/Makefile data/Makefile po/Makefile])
+AC_OUTPUT([Makefile src/Makefile themes/Makefile themes/default/Makefile themes/azbooka/Makefile data/Makefile po/Makefile])
