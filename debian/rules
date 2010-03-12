@@ -27,12 +27,13 @@ install: build
 	dh_testroot
 	dh_prep
 
-	$(MAKE) install DESTDIR=$(CURDIR)/debian/elock
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/tmp
 
 binary-arch: build install
 	dh_testdir
 	dh_testroot
 	dh_installdirs
+	dh_install
 	dh_compress
 	dh_fixperms
 	dh_strip --dbg-package=elock-dbg

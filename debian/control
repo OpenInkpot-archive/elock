@@ -1,9 +1,9 @@
 Source: elock
 Section: gui
 Maintainer: Alexander Kerner <lunohod@openinkpot.org>
-Build-Depends: debhelper (>= 7), autoconf, automake, pkg-config, libecore-dev, libevas-dev, libedje-dev, libkeys-dev, libedje-bin
+Build-Depends: debhelper (>= 7), autoconf, automake, pkg-config, libecore-dev, libevas-dev, libedje-dev, libkeys-dev, libedje-bin, libeoi-dev
 XCS-Cross-Host-Build-Depends: debhelper (>= 7), autoconf, automake, pkg-config, libedje-bin
-XCS-Cross-Build-Depends: libecore-dev, libevas-dev, libedje-dev, libkeys-dev
+XCS-Cross-Build-Depends: libecore-dev, libevas-dev, libedje-dev, libkeys-dev, libeoi-dev
 Priority: optional
 Standards-Version: 3.8.3
 
@@ -26,3 +26,14 @@ Description: simple EFL-based screen locker for OpenInkpot -- debugging informat
   - software-based. elock works like a usual screensaver program
  .
  This package contains debugging information for elock.
+
+Package: elock-azbooka
+Architecture: any
+Depends: elock (= ${binary:Version}), dejavu-fonts
+Description: simple EFL-based screen locker for OpenInkpot -- Azbooka skin
+ elock is a screen locker for OpenInkpot with two operation modes:
+  - hardware-assisted. Key locking is performed by hardware, elock just displays
+    the "device locked" screen.
+  - software-based. elock works like a usual screensaver program
+ .
+ This package contains skin for Azbooka 516.
