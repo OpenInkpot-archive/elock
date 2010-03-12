@@ -29,8 +29,8 @@ collections {
                     state, "default" 0.0;
                     min, 600 377;
                     max, 600 377;
-                    rel1 { relative, 0.0 1.0; offset, 0 -377; to, "elock/bg"; }
-                    rel2 { relative, 1.0 1.0; offset, -1 -1; to, "elock/bg"; }
+                    rel1 { to, "elock/bg"; }
+                    rel2 { relative, 1.0 0.0; offset, -1 377; to, "elock/bg"; }
                     image {
                         normal, "lock.png";
                     }
