@@ -1,16 +1,10 @@
-MAINTAINERCLEANFILES = Makefile.in
+THEMES=$(wildcard *.edc)
+COMPILED_THEMES=$(patsubst %.edc,%.edj,$(THEMES))
 
-EDC = elock.edc
-EDJ = $(EDC:%.edc=%.edj)
+themedir=$(datadir)/eoi/themes/default
+theme_DATA=$(COMPILED_THEMES)
 
-EXTRA_DIST = $(EDC)
+%.edj: %.edc
+	edje_cc $< $@
 
-#CLEANFILES = $(EDJ)
-
-themedir =  $(pkgdatadir)/themes
-theme_DATA = $(EDJ)
-
-all: $(EDJ)
-
-.edc.edj:
-	edje_cc $<
+CLEANFILES=$(COMPILED_THEMES)

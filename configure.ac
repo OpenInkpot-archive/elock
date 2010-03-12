@@ -8,5 +8,6 @@ PKG_PROG_PKG_CONFIG
 
 PKG_CHECK_MODULES(EFL, [ecore ecore-con ecore-evas evas edje])
 PKG_CHECK_MODULES(LIBKEYS, [libkeys])
+PKG_CHECK_MODULES(EOI, [libeoi])
 
 AC_OUTPUT([Makefile src/Makefile themes/Makefile data/Makefile po/Makefile])
