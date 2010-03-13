@@ -5,6 +5,6 @@ themedir=$(datadir)/eoi/themes/azbooka
 theme_DATA=$(COMPILED_THEMES)
 
 %.edj: %.edc
-	edje_cc $< $@
+	edje_cc -id .. $< $@
 
 CLEANFILES=$(COMPILED_THEMES)

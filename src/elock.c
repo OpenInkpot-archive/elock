@@ -39,6 +39,7 @@
 
 #include <libkeys.h>
 #include <libeoi_themes.h>
+#include <libeoi_dialog.h>
 
 #define LOCK "Lock"
 #define UNLOCK "Unlock"
@@ -139,8 +140,8 @@ main_win_resize_handler(Ecore_Evas *main_win)
     Evas *canvas = ecore_evas_get(main_win);
     evas_output_size_get(canvas, &w, &h);
 
-    Evas_Object *edje = evas_object_name_find(canvas, "edje");
-    evas_object_resize(edje, w, h);
+    Evas_Object *dlg = evas_object_name_find(canvas, "dlg");
+    evas_object_resize(dlg, w, h);
 }
 
 int
@@ -181,11 +182,6 @@ main(int argc, char **argv)
     Evas *main_canvas = ecore_evas_get(state.main_win);
 
     Evas_Object *edje = eoi_create_themed_edje(main_canvas, "elock", "elock");
-    evas_object_name_set(edje, "edje");
-    evas_object_move(edje, 0, 0);
-    evas_object_resize(edje, 600, 800);
-    evas_object_show(edje);
-    evas_object_focus_set(edje, true);
 
     if (!hardware_lock) {
         evas_object_event_callback_add(edje, EVAS_CALLBACK_KEY_UP,
@@ -193,14 +189,19 @@ main(int argc, char **argv)
         ecore_event_handler_add(ECORE_X_EVENT_WINDOW_SHOW,
                                 &main_win_show_handler, &state);
 
-        edje_object_part_text_set(edje, "elock/text",
+        edje_object_part_text_set(edje, "text",
                                   gettext("Press Power button to unlock the device"));
     } else {
-        edje_object_part_text_set(edje, "elock/text",
+        edje_object_part_text_set(edje, "text",
                                   gettext("Press and hold \"OK\" for 3-4 seconds to unlock the device"));
     }
 
-    edje_object_part_text_set(edje, "elock/title", gettext("Keyboard Lock"));
+    Evas_Object *dlg = eoi_dialog_create("dlg", edje);
+    eoi_dialog_title_set(dlg, gettext("Keyboard Lock"));
+    evas_object_move(dlg, 0, 0);
+    evas_object_resize(dlg, 600, 800);
+    evas_object_show(dlg);
+    evas_object_focus_set(dlg, true);
 
     ecore_main_loop_begin();
 

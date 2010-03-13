@@ -14,51 +14,28 @@ collections {
         name, "elock";
         parts {
             part {
-                name, "elock/bg";
-                type, RECT;
+                name, "icon";
                 description {
                     state, "default" 0.0;
-                    rel1 { relative, 0.0 0.0; offset, 0 0; }
-                    rel2 { relative, 1.0 1.0; offset, 0 0; }
+                    image { normal, "lock.png"; }
+                    min, 147 147;
+                    max, 147 147;
+                    rel1 { offset, 19 50; }
+                    rel2 { relative, 0.0 0.0; offset, 166 197; }
                 }
             }
             part {
-                name, "elock/image";
-                type, IMAGE;
-                description {
-                    state, "default" 0.0;
-                    min, 600 377;
-                    max, 600 377;
-                    rel1 { to, "elock/bg"; }
-                    rel2 { relative, 1.0 0.0; offset, -1 377; to, "elock/bg"; }
-                    image {
-                        normal, "lock.png";
-                    }
-                }
-            }
-            part {
-                name, "elock/title";
-                type, TEXTBLOCK;
-                description {
-                    state, "default" 0.0;
-                    text { style, "default"; }
-                    rel1 { offset, 11 40; to, "elock/image"; }
-                    rel2 { relative, 1.0 0.0; offset, -12 73; to, "elock/image"; }
-                    align, 0.5 0.0;
-                }
-            }
-            part {
-                name, "elock/text_rect";
+                name, "text-rect";
                 type, RECT;
                 description {
                     state, "default" 0.0;
                     color, 255 255 255 0;
-                    rel1 { relative, 0.0 0.0; offset, 200 200; to, "elock/image"; }
-                    rel2 { relative, 0.0 0.0; offset, 580 300; to, "elock/image"; }
+                    rel1 { offset, 200 50; }
+                    rel2 { relative, 0.0 0.0; offset, 580 200; }
                 }
             }
             part {
-                name, "elock/text";
+                name, "text";
                 type, TEXTBLOCK;
                 multiline, 1;
                 description {
@@ -66,10 +43,10 @@ collections {
                     color, 0 0 0 255;
                     text {
                         style, "default";
+                        max, 0 1;
                     }
-                    align, 0.5 0.5;
-                    rel1 { relative, 0.0 0.0; offset, 0 0; to, "elock/text_rect"; }
-                    rel2 { relative, 1.0 1.0; offset, 0 0; to, "elock/text_rect"; }
+                    rel1 { to, "text-rect"; }
+                    rel2 { to, "text-rect"; }
                 }
             }
         }

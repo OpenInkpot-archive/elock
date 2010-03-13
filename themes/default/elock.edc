@@ -1,89 +1,54 @@
 images {
-	image, "lock.png" COMP;
+    image, "lock.png" COMP;
 }
 
 styles {
-	style {
-		name, "textblock_style";
-		base, "font=sans-serif font_size=24 align=left valign=middle color=#000 wrap=word";
-	}
+    style {
+        name, "textblock_style";
+        base, "font=sans-serif font_size=24 align=left valign=middle color=#000 wrap=word";
+    }
 }
 
 collections {
-	group {
-		name, "elock";
-		parts {
-			part {
-				name, "elock/bg";
-				type, RECT;
-				description {
-					state, "default" 0.0;
-					color, 255 255 255 255;
-					rel1 { relative, 0.0 0.0; offset, 0 0; }
-					rel2 { relative, 1.0 1.0; offset, 0 0; }
-				}
-			}
-			part {
-				name, "elock/image";
-				type, IMAGE;
-				mouse_events, 0;
-				description {
-					state, "default" 0.0;
-					min, 600 377;
-					max, 600 377;
-					rel1 { relative, 0.0 1.0; offset, 0 -377; to, "elock/bg"; }
-					rel2 { relative, 1.0 1.0; offset, -1 -1; to, "elock/bg"; }
-					image {
-						normal, "lock.png";
-					}
-				}
-			}
-			part {
-				name, "elock/title";
-				type, TEXT;
-				mouse_events, 0;
-				description {
-					state, "default" 0.0;
-					color, 0 0 0 255;
-					text {
-						font, "sans-serif";
-						size, 24;
-						text, "Keyboard Lock";
-					}
-					rel1 { relative, 0.0 0.0; offset, 11 42; to, "elock/image"; }
-					rel2 { relative, 0.0 0.0; offset, 590 63; to, "elock/image"; }
-					align, 0.0 0.0;
-				}
-			}
-			part {
-				name, "elock/text_rect";
-				type, RECT;
-				mouse_events, 0;
-				description {
-					state, "default" 0.0;
-					color, 255 255 255 0;
-					rel1 { relative, 0.0 0.0; offset, 200 150; to, "elock/image"; }
-					rel2 { relative, 0.0 0.0; offset, 580 300; to, "elock/image"; }
-				}
-			}
-			part {
-				name, "elock/text";
-				type, TEXTBLOCK;
-				multiline, 1;
-				mouse_events, 0;
-				description {
-					state, "default" 0.0;
-					color, 0 0 0 255;
-					text {
-						style, "textblock_style";
-						max, 0 1;
-						text, "Press and hold \"OK\" for 3-4 seconds to unlock the device";
-					}
-					align, 0.0 0.4;
-					rel1 { relative, 0.0 0.0; offset, 0 0; to, "elock/text_rect"; }
-					rel2 { relative, 1.0 1.0; offset, 0 0; to, "elock/text_rect"; }
-				}
-			}
-		}
-	}
+    group {
+        name, "elock";
+        parts {
+            part {
+                name, "icon";
+                description {
+                    state, "default" 0.0;
+                    image { normal, "lock.png"; }
+                    min, 147 147;
+                    max, 147 147;
+                    rel1 { offset, 19 50; }
+                    rel2 { relative, 0.0 0.0; offset, 166 197; }
+                }
+            }
+            part {
+                name, "text-rect";
+                type, RECT;
+                description {
+                    state, "default" 0.0;
+                    color, 255 255 255 0;
+                    rel1 { offset, 200 50; }
+                    rel2 { relative, 0.0 0.0; offset, 580 200; }
+                }
+            }
+            part {
+                name, "text";
+                type, TEXTBLOCK;
+                multiline, 1;
+                description {
+                    state, "default" 0.0;
+                    color, 0 0 0 255;
+                    text {
+                        style, "textblock_style";
+                        max, 0 1;
+                    }
+                    rel1 { to, "text-rect"; }
+                    rel2 { to, "text-rect"; }
+                }
+            }
+        }
+    }
 }
