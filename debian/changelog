@@ -1,3 +1,11 @@
+elock (0.3.4) zelazny; urgency=low
+
+  * Theming fixed to use new-style locations
+  * Separate Azbooka theme added
+  * Packaging cleanups
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Sat, 13 Mar 2010 06:09:59 +0600
+
 elock (0.3.3) zelazny; urgency=low
 
   * .edj removed from repository as native edje_cc is available for build
