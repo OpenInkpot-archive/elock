@@ -1,3 +1,9 @@
+elock (0.3.5) zelazny; urgency=low
+
+  * Fix broken unlock if elock is not hardware-assisted (OI#846)
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Mon, 15 Mar 2010 15:04:21 +0600
+
 elock (0.3.4) zelazny; urgency=low
 
   * Theming fixed to use new-style locations
