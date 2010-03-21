@@ -1,11 +1,10 @@
-images {
-    image, "lock.png" COMP;
-}
-
 styles {
     style {
-        name, "default";
-        base, "font=DejaVu\\ Sans\\ Condensed:style=bold font_size=22 align=center color=#000 wrap=word";
+        name, "text";
+        base, "font=DejaVu\\ Sans\\ Condensed font_size=22 align=center color=#000 wrap=word";
+        tag, "b" "+font=DejaVu\\ Sans\\ Condensed:style=bold";
+        tag, "/b" "-";
+        tag, "br" "\n";
     }
 }
 
@@ -14,39 +13,28 @@ collections {
         name, "elock";
         parts {
             part {
-                name, "icon";
-                description {
-                    state, "default" 0.0;
-                    image { normal, "lock.png"; }
-                    min, 147 147;
-                    max, 147 147;
-                    rel1 { offset, 19 50; }
-                    rel2 { relative, 0.0 0.0; offset, 166 197; }
-                }
-            }
-            part {
-                name, "text-rect";
-                type, RECT;
-                description {
-                    state, "default" 0.0;
-                    color, 255 255 255 0;
-                    rel1 { offset, 200 50; }
-                    rel2 { relative, 0.0 0.0; offset, 580 200; }
-                }
-            }
-            part {
                 name, "text";
                 type, TEXTBLOCK;
                 multiline, 1;
                 description {
                     state, "default" 0.0;
-                    color, 0 0 0 255;
-                    text {
-                        style, "default";
-                        max, 0 1;
-                    }
-                    rel1 { to, "text-rect"; }
-                    rel2 { to, "text-rect"; }
+                    text { style, "text"; }
+                    rel1 { offset, 0 25; }
+                }
+            }
+        }
+    }
+    group {
+        name, "icon";
+        images {
+            image, "icon-lock.png" COMP;
+        }
+        parts {
+            part {
+                name, "icon";
+                description {
+                    state, "default" 0.0;
+                    image { normal, "icon-lock.png"; }
                 }
             }
         }

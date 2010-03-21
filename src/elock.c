@@ -187,7 +187,6 @@ main(int argc, char **argv)
     eoi_dialog_title_set(dlg, gettext("Keyboard Lock"));
     evas_object_move(dlg, 0, 0);
     evas_object_resize(dlg, 600, 800);
-    evas_object_show(dlg);
     evas_object_focus_set(dlg, true);
 
     if (!hardware_lock) {
@@ -203,6 +202,10 @@ main(int argc, char **argv)
                                   gettext("Press and hold \"OK\" for 3-4 seconds to unlock the device"));
     }
 
+    Evas_Object *icon = eoi_create_themed_edje(main_canvas, "elock", "icon");
+    edje_object_part_swallow(dlg, "icon", icon);
+
+    evas_object_show(dlg);
 
     ecore_main_loop_begin();
 
