@@ -1,3 +1,10 @@
+elock (0.3.7) zelazny; urgency=low
+
+  * Translation updated: Ukrainian.
+  * Translation added: English
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Tue, 23 Mar 2010 01:59:24 +0600
+
 elock (0.3.6) zelazny; urgency=low
 
   * Prepare new Azbooka skin
