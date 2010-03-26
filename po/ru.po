@@ -15,14 +15,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/elock.c:209
-msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
-msgstr "Для снятия блокировки кнопок<br>нажмите «<b>OK</b>»<br>и удерживайте 3-4 секунды"
-
 #: src/elock.c:212
 msgid "Keyboard Lock"
-msgstr "Клавиатура заблокирована"
+msgstr "Кнопки заблокированы"
 
 #: src/elock.c:204
 msgid "Press Power button to unlock the device"
-msgstr "Для снятия блокировки нажмите кнопку включения."
+msgstr "Для снятия блокировки<br>нажмите кнопку включения"
+
+#: src/elock.c:209
+msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
+msgstr "Для снятия блокировки кнопок<br>нажмите \"<b>OK</b>\"<br>и удерживайте 3-4 секунды"
