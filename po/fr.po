@@ -19,10 +19,10 @@ msgstr ""
 msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
 msgstr "Appuyez sur \"OK\" pendant 3 à 4 secondes pour déverrouiller l'appareil"
 
-#: src/elock.c:212
-msgid "Keyboard Lock"
-msgstr "Verrouillage clavier"
-
 #: src/elock.c:204
 msgid "Press Power button to unlock the device"
 msgstr "Appuyez sur le bouton Power pour déverrouiller l'appareil"
+
+#: src/elock.c:212
+msgid "Keyboard Lock"
+msgstr "Clavier verrouillé"
