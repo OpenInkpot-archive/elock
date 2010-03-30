@@ -1,6 +1,6 @@
 # translation of elock.po to French
 # This file is put in the public domain.
-#
+# 
 # Louvre <diogenedebian@gmail.com>, 2009.
 msgid ""
 msgstr ""
@@ -15,17 +15,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: src/elock.c:204
-#, fuzzy
-msgid "Press Power button to unlock the device"
-msgstr ""
-"Appuyez sur \"OK\" pendant 3 à 4 secondes pour déverrouiller l'appareil"
-
 #: src/elock.c:209
 msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
-msgstr ""
-"Appuyez sur \"OK\" pendant 3 à 4 secondes pour déverrouiller l'appareil"
+msgstr "Appuyez sur \"OK\" pendant 3 à 4 secondes pour déverrouiller l'appareil"
 
 #: src/elock.c:212
 msgid "Keyboard Lock"
-msgstr ""
+msgstr "Verrouillage clavier"
+
+#: src/elock.c:204
+msgid "Press Power button to unlock the device"
+msgstr "Appuyez sur le bouton Power pour déverrouiller l'appareil"
