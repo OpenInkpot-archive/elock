@@ -1,8 +1,7 @@
 # elock
 # This file is put in the public domain.
 # Alexander Kerner <lunohod@openinkpot.org>
-#
-
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: elock 0.1\n"
