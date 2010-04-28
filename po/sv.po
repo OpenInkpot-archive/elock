@@ -1,7 +1,7 @@
 # elock
 # This file is put in the public domain.
 # Alexander Kerner <lunohod@openinkpot.org>
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: elock 0.1\n"
@@ -16,12 +16,12 @@ msgstr ""
 
 #: src/elock.c:204
 msgid "Press Power button to unlock the device"
-msgstr "Tryck PÃ¥-knappen fÃ¶r att lÃ¥sa upp"
+msgstr "Tryck på På-knappen för att låsa upp"
 
 #: src/elock.c:209
 msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
-msgstr "Tryck och hÃ¥ll \"OK\" i 3-4-sekunder fÃ¶r att lÃ¥sa upp"
+msgstr "Tryck och håll \"OK\" i 3-4-sekunder för att låsa upp"
 
 #: src/elock.c:212
 msgid "Keyboard Lock"
-msgstr "Tangentbordet lÃ¥st"
+msgstr "Tangentbordet låst"
