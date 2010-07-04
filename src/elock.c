@@ -72,7 +72,7 @@ typedef struct {
     int size;
 } client_data_t;
 
-static int
+static Eina_Bool
 _client_add(void *param, int ev_type, void *ev)
 {
     Ecore_Con_Event_Client_Add *e = ev;
@@ -83,7 +83,7 @@ _client_add(void *param, int ev_type, void *ev)
     return 0;
 }
 
-static int
+static Eina_Bool
 _client_del(void *param, int ev_type, void *ev)
 {
     Ecore_Con_Event_Client_Del *e = ev;
@@ -100,7 +100,7 @@ _client_del(void *param, int ev_type, void *ev)
     return 0;
 }
 
-static int
+static Eina_Bool
 _client_data(void *param, int ev_type, void *ev)
 {
     Ecore_Con_Event_Client_Data *e = ev;
@@ -123,7 +123,7 @@ main_win_key_handler(void *data, Evas *evas, Evas_Object *obj, void *event_info)
         do_unlock(state);
 }
 
-static int
+static Eina_Bool
 main_win_show_handler(void *param, int ev_type, void *ev)
 {
     elock_state_t *state = param;
