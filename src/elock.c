@@ -174,7 +174,7 @@ main(int argc, char **argv)
 
     ecore_evas_callback_resize_set(state.main_win, main_win_resize_handler);
 
-    ecore_con_server_add(ECORE_CON_LOCAL_USER, "elock", 0, NULL);
+    ecore_con_server_add(ECORE_CON_LOCAL_SYSTEM, "elock", 0, NULL);
     ecore_event_handler_add(ECORE_CON_EVENT_CLIENT_ADD, _client_add, NULL);
     ecore_event_handler_add(ECORE_CON_EVENT_CLIENT_DATA, _client_data, NULL);
     ecore_event_handler_add(ECORE_CON_EVENT_CLIENT_DEL, _client_del, &state);
