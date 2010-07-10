@@ -1,3 +1,10 @@
+elock (0.3.9.bradbury1) bradbury; urgency=low
+
+  * Build for bradbury
+  * Backported: Switch ecore-con server from LOCAL_USER to LOCAL_SYSTEM
+
+ -- Alexander Kerner <lunohod@openinkpot.org>  Sat, 10 Jul 2010 21:17:07 +0200
+
 elock (0.3.8) zelazny; urgency=low
 
   * Translations updated: French, Russian, Ukrainian.
