@@ -1,3 +1,16 @@
+elock (0.3.11) zelazny; urgency=low
+
+  [ Tomasz Długosz ]
+  * l10n: initial swedish translation
+
+  [ Sven Bring ]
+  * l10n: Updates to Swedish (sv) translation
+
+  [ Alexander Kerner ]
+  * Use 8bpp engine
+
+ -- Alexander Kerner <lunohod@openinkpot.org>  Thu, 19 Aug 2010 09:43:54 +0200
+
 elock (0.3.10) zelazny; urgency=low
 
   * Switch ecore-con server from LOCAL_USER to LOCAL_SYSTEM
