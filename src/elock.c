@@ -166,7 +166,7 @@ main(int argc, char **argv)
 
     ecore_x_io_error_handler_set(exit_all, NULL);
 
-    state.main_win = ecore_evas_software_x11_new(0, 0, 0, 0, 600, 800);
+    state.main_win = ecore_evas_software_x11_8_new(0, 0, 0, 0, 600, 800);
     ecore_evas_borderless_set(state.main_win, 0);
     ecore_evas_shaped_set(state.main_win, 0);
     ecore_evas_title_set(state.main_win, "elock");
