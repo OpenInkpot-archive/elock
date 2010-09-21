@@ -127,7 +127,7 @@ static Eina_Bool
 main_win_show_handler(void *param, int ev_type, void *ev)
 {
     elock_state_t *state = param;
-    Ecore_X_Window win = ecore_evas_software_x11_window_get(state->main_win);
+    Ecore_X_Window win = ecore_evas_software_x11_8_window_get(state->main_win);
     if (!ecore_x_keyboard_grab(win))
         errx(1, "Unable to grab keyboard");
     return 0;
