@@ -1,3 +1,9 @@
+elock (0.3.12) zelazny; urgency=low
+
+  * Fix elock window
+
+ -- Alexander Kerner <lunohod@openinkpot.org>  Tue, 21 Sep 2010 13:18:24 +0200
+
 elock (0.3.11) zelazny; urgency=low
 
   [ Tomasz Długosz ]
