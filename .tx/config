@@ -1,0 +1,8 @@
+[oi.elock]
+file_filter = po/<lang>.po
+source_file = po/elock.pot
+source_lang = en
+
+[main]
+host = transifex.net
+
