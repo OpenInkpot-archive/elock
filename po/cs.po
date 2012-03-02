@@ -24,5 +24,5 @@ msgid "Press Power button to unlock the device"
 msgstr "Pro odemčení zařízení stiskni tlačítko Power"
 
 #: src/elock.c:209
-msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
+msgid "Hold OK to unlock"
 msgstr "Pro odemčení zařízení stiskni \"OK\" a drž 3-4 sekundy"

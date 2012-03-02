@@ -19,7 +19,7 @@ msgid "Press Power button to unlock the device"
 msgstr "Tryck på På-knappen för att låsa upp"
 
 #: src/elock.c:209
-msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
+msgid "Hold OK to unlock"
 msgstr "Tryck och håll \"OK\" i 3-4-sekunder för att låsa upp"
 
 #: src/elock.c:212

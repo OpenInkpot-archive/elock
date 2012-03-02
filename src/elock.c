@@ -199,7 +199,7 @@ main(int argc, char **argv)
                                   gettext("Press Power button to unlock the device"));
     } else {
         edje_object_part_text_set(edje, "text",
-                                  gettext("Press and hold \"OK\" for 3-4 seconds to unlock the device"));
+                                  gettext("Hold OK to unlock"));
     }
 
     Evas_Object *icon = eoi_create_themed_edje(main_canvas, "elock", "icon");

@@ -16,7 +16,7 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 
 #: src/elock.c:209
-msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
+msgid "Hold OK to unlock"
 msgstr "Appuyez sur \"OK\" pendant 3 à 4 secondes pour déverrouiller l'appareil"
 
 #: src/elock.c:204

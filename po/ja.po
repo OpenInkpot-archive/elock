@@ -24,7 +24,7 @@ msgid "Press Power button to unlock the device"
 msgstr "電源ボタンでキーロック解除"
 
 #: src/elock.c:209
-msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
+msgid "Hold OK to unlock"
 msgstr ""
 "キーロック解除は\"OK\"を\n"
 "3〜4秒押してください"

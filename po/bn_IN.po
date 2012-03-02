@@ -22,7 +22,7 @@ msgid "Press Power button to unlock the device"
 msgstr "ডিভাইসটি আনলক বা খোলার জন্য পাওয়ার বটন টিপে ধরুন"
 
 #: src/elock.c:209
-msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
+msgid "Hold OK to unlock"
 msgstr "ডিভাইসটি আনলোক বা খোলার জন্য \"OK\" বটন ৩-৪ সেকেন্ডের জন্য টিপে ধরে রাখুন"
 
 #: src/elock.c:212

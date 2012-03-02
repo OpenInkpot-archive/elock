@@ -15,7 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: src/elock.c:209
-msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
+msgid "Hold OK to unlock"
 msgstr "Mantingui pressionat  \"OK\" durant 3-4 segonds per a desbloquejar el dispositiu"
 
 #: src/elock.c:212

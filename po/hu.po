@@ -25,5 +25,5 @@ msgid "Press Power button to unlock the device"
 msgstr "Nyomja meg a \"Power\" gombot a készülék zárolásának feloldásához"
 
 #: src/elock.c:209
-msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
+msgid "Hold OK to unlock"
 msgstr "Tartsa lenyomva az \"OK\" gombot 3-4 másodpercig a készülék zárolásának feloldásához"

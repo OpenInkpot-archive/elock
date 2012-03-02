@@ -22,6 +22,6 @@ msgid "Keyboard Lock"
 msgstr "Блакіроўка клавіятуры"
 
 #: src/elock.c:152
-msgid "Press and hold \"OK\" for 3-4 seconds to unlock the device"
+msgid "Hold OK to unlock"
 msgstr "Націсніце і трымайце \"OK\" 3-4 секунды, каб разблакаваць клавіятуру"
 
