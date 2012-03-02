@@ -1,3 +1,9 @@
+elock (0.3.13) zelazny; urgency=low
+
+  * Update "Hold OK to unlock" string to avoid typo.
+
+ -- Mikhail Gusarov <dottedmag@openinkpot.org>  Fri, 02 Mar 2012 22:33:45 +0100
+
 elock (0.3.12) zelazny; urgency=low
 
   * Fix elock window
